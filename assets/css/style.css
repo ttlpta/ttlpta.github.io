@@ -1821,9 +1821,6 @@ Icon for all respective meta
 
 .title-des {
 	font-weight: 400;
-    --x-height-multiplier: 0.342;
-    --baseline-multiplier: 0.22;
-    font-family: medium-content-sans-serif-font,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
     letter-spacing: -.02em;
     font-weight: 300;
     font-style: normal;
@@ -1842,6 +1839,10 @@ Icon for all respective meta
     margin-top: 50px;
 }
 
+.title-container h1 {
+line-height: 40px;
+}
+
 .title-container, .content-article {
 	padding-left : 18px;
 	padding-right : 18px;
@@ -1854,4 +1855,10 @@ Icon for all respective meta
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+.strong-title {
+	margin: 30px 0px;
+}
+pre {
+	color: #2a941d;
 }
