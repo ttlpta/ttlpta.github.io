@@ -37,7 +37,53 @@ Chi tiết hơn:
  
 2. Functional Programming là gì?
 
-FP là khi chương trình của bạn được viết bởi các pure function và tránh việc shared state, 
+FP là khi chương trình của bạn được viết bởi các <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">pure function</a> và tránh việc <a>shared state</a> (các biến, đối tượng tồn tại trong một share scope) , <a>mutable data</a> và <a>side-effects.</a> 
+
+FP là một trong hai khái niệm cơ bản của JS. 
+
+Điểm cộng: 
+
+- Pure functions
+- Tránh side-effects
+- Simple function composition.
+- Một số các tính năng hỗ trợ FB: first-class functions, higher order functions, functions as arguments/values.
+
+
+Điểm trừ: 
+- Không nhắc đến pure function.
+- Không cung cấp được ví dụ về FP
+- Không cung cấp được cái feature hỗ trợ FP
+
+3. Điểm khác nhau giữa kế thừa truyền thống và kế thừa nguyên mẫu
+
+Kế thừa truyền thống : 1 khởi tạo được kế thừa từ 1 class (Giống như một bản sao của class đó) và tạo nên mối quan hệ giữa class cha và class con (VD: Class Student extends Persion, thì ta có thể khởi tạo 1 biến type Persion từ Student <code> Person p = new Student() </code>). 1 khởi tạo thông thường có thể khởi tạo từ vàu functions constructor với từ khóa "new". 
+
+Kế thừa nguyên mẫu : 1 khởi tạo có thể được kế thừa trực tiếp từ <b>các object </b> khác nhau.
+Khởi tạo thông thường được khởi tạo qua factory function hoặc <code>Object.create()</code>. 
+
+
+<h2>
+Trong JS, kế thừa nguyên mẫu đơn giản và linh hoạt hơn kế thừa class (kế thừa truyền thống).
+</h2>
+
+
+Điểm cộng : 
+
+- Kế thừa class : tạo lên liên kết chặt chẽ giữa các kế thừa.
+- Kế thừa nguyên mẫu : nhắc đến concatenative inheritance, prototype delegation, functional inheritance, object composition.
+
+Điểm trừ: 
+
+Không có khái niêmj kế thừa truyền thống và kế thừa nguyên mẫu
+
+4, Ưu nhược điểm của function programming và lập trình hướng đối tượng
+
+Ưu điểm của OOP : Cấu trúc dễ hiểu dựa trên concept cơ bản của object và dễ dàng có thể hiểu được ý nghĩa của methods. OOP hướng đến việc sử dụng một cách bắt buộc hơn là việc chủ động khai báo, điều này giống như việc viết một bản hướng dẫn sử dụng để máy tính làm theo.
+
+Nhược điểm của OOP : OOP thường dựa trên việc shared state. Đối tượng và các hành vi thường có quan hệ không thể tách rời trên cùng 1 entity. Việc này có thể hiểu như nếu bạn khởi tạo 1 đối tượng từ 1 class thì kéo theo khởi tạo đó là tất cả các method public của class đó mà trong khi đó bạn chỉ cần sự dụng 1 method của class đó mà thôi.
+
+Ưu điểm của FP
+
 
 
 
