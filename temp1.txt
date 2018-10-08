@@ -33,6 +33,33 @@ Trong trường hợp nào thì các request sẽ kết thúc trong thời gian 
 
 Ngoài ra, một mục tiêu của SSR đó là có khả năng sử dụng cùng hoặc một vài code trên cả client và server. Điểm khác nhau giữa các môi trường này là client thì phục vụ duy nhất cho 1 user còn server thì phục vụ cho nhiều user. Công việc dễ dàng hoạt động trên client side giống như singletons hoặc trạng thái toàn cầu khác sẽ trả về bugs, thiếu, lỗi data và sự hỗn loạn theo các request đồng thời được load trên server
 
+Tất cả những issue này sẽ trở thành 1 vấn đề với các request đồng thời. Mọi thứ sẽ thường chỉ làm việc với server có ít request đồng thời 1 lúc hoặc trong môi trường phát triển của bạn.
+
+Điều này dẫn đến một tình huống đó là sự khác nhau từ một ví dụ của ứng dụng Node. Chúng tôi sử dụng JS cho thư viện của nó hỗ trợ và trình duyệt thay vì cho mô hình đồng thời của nó. Trong ứng này , mô hình bất đồng bộ đã trả giá cho một tí lợi ích của nó.
+
+
+Bài học từ Hyoernova
+
+Một dịch vụ rendering của chúng tôi, Hyperloop , sẽ trở thành dịch vụ cơ bản cái mà tất cả người của Airbnb website tương tác với nó. Độ tin cậy và perfomance 
+rất quan trọng đối với trải nghiệm của người dùng. Vì vậy chúng tôi đã move đến việc chạy sản phẩm trên 1 dịch vụ mới. Chúng tôi đã kết hợp tất cả các bài học mà chúng tôi đã học từ service SSR của chúng tôi, Hypernova
+
+
+Hypernova làm việc khác với dịch vụ mới của chúng tôi. Nó chỉ làm công việc render thuần túy. Nó được gọi từ một server monolith Rails và trả về Html cho Component đang yêu cầu. Trong nhiều trường hợp, một mảnh là toàn bộ content chính của page r, Rail chỉ cung cấp layout bao ngoài. Trong một só trường hợp kế thừa, các mảnh của trang có thể gắn với nhau sử dụng ERB (Hệ tài nguyên của doanh nghiệp). Tuy nhiên , trong cả 2 trường hợp , Hypernove không nạp, xử lí dữ liệu từ chính nó mà data được cung cấp bằng Rails
+
+
+Điều này nói răng, Hyporloop và Hypernova có những điểm hoạt đông giống nhau cũng như việc tính toán đồng thời, và cũng như một service đang chạy trên production với lưu lượng truy cập đáng kể.
+
+<img src="https://cdn-images-1.medium.com/max/1040/1*ttOAiNGuR2bHntz2WI-cEA.png"/>
+
+Các request đến từ user đên với server Rail của chúng tôi, tại đây Rail có nhiệm vụ chuẩn bị data cho các props của các components sau đó Rail sẽ tạo một request với tất cả các props đó và tên của components lên Hypernova
+
+Hypernova sẽ render components với props mà Rail vừa gửi lên để tạo ra HTML và trả về cho Rail, tất cả code HTML này sẽ được nhúng vào page templage và gửi toàn bộ về phía client
+
+
+<img src="https://cdn-images-1.medium.com/max/1040/1*CO_ntlRx7YtWv0of7oGGfQ.png"/>
+
+
+Hyper
 
 
  
