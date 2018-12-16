@@ -1825,7 +1825,8 @@ Icon for all respective meta
     font-weight: 300;
     font-style: normal;
     letter-spacing: 0;
-    font-size: 28px;
+    margin-top: 3px;
+    font-size: 26px;
     color: rgba(0,0,0,.54);
     margin-left: -1.75px;
     line-height: 1.22;
