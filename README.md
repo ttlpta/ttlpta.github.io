@@ -132,3 +132,6 @@ https://blog.bitsrc.io/11-javascript-animation-libraries-for-2018-9d7ac93a2c59
 https://blog.bitsrc.io/11-javascript-utility-libraries-you-should-know-in-2018-3646fb31ade
 
 
+## Call vs Apply
+
+Call và apply đều là để 1 function được viết thực hiện được ở 1 opject khác. Args thứ 1 là object sẽ thực hiện method đó , còn args thứ 2 là params truyền vào function . Khác nhau giữa call và apply là truyền mảng và truyền từng tham số
