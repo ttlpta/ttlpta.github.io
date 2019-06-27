@@ -135,3 +135,44 @@ https://blog.bitsrc.io/11-javascript-utility-libraries-you-should-know-in-2018-3
 ## Call vs Apply
 
 Call và apply đều là để 1 function được viết thực hiện được ở 1 opject khác. Args thứ 1 là object sẽ thực hiện method đó , còn args thứ 2 là params truyền vào function . Khác nhau giữa call và apply là truyền mảng và truyền từng tham số
+
+Hàm call
+>   
+    var person1 = {firstName: 'Jon', lastName: 'Kuperman'};
+    var person2 = {firstName: 'Kelly', lastName: 'King'};
+
+    function say(greeting1, greeting2) {
+        console.log(greeting1 + ',' + greeting2 + ' ' + this.firstName + ' ' + this.lastName);
+    }
+
+    say.call(person1, 'Hello', 'Good morning'); // => Hello,Good morning Jon Kuperman
+    say.call(person2, 'Hello', 'Good morning'); // => Hello,Good morning Kelly King
+
+
+Hàm Apply 
+> 
+    var person1 = {firstName: 'Jon', lastName: 'Kuperman'};
+    var person2 = {firstName: 'Kelly', lastName: 'King'};
+
+    function say(greeting0, greeting1) {
+        console.log(greeting0 + ',' + greeting1 + ' ' + this.firstName + ' ' + this.lastName);
+    }
+
+    say.apply(person1, ['Hello', 'Good moring']); // => Hello,Good moring Jon Kuperman
+    say.apply(person2, ['Hello', 'Good moring']); // => Hello,Good moring Kelly King
+
+
+Hàm Bind
+>  
+    var person1 = {firstName: 'Jon', lastName: 'Kuperman'};
+    var person2 = {firstName: 'Kelly', lastName: 'King'};
+
+    function say(greeting0, greeting1) {
+        console.log(greeting0 + ',' + greeting1 + ' ' + this.firstName + ' ' + this.lastName);
+    }
+
+    var sayHelloJon = say.bind(person1, 'Hello', 'Good morning');
+    var sayHelloKelly = say.bind(person2, 'Hello', 'Good morning');
+
+    sayHelloJon(); // => Hello,Good morning Jon Kuperman
+    sayHelloKelly(); // => Hello,Good morning Kelly King
