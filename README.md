@@ -176,3 +176,88 @@ Hàm Bind
 
     sayHelloJon(); // => Hello,Good morning Jon Kuperman
     sayHelloKelly(); // => Hello,Good morning Kelly King
+
+## Using the DOM like a Pro
+To select a single element using any valid CSS selector use:
+>
+    document.querySelector('.foo')            // class selector
+    document.querySelector('#foo')            // id selector
+    document.querySelector('div')             // tag selector
+    document.querySelector('[name="foo"]')    // attribute selector
+    document.querySelector('div + p > span')  // you go girl!
+
+Multiple elements
+>
+    document.querySelectorAll('p')  
+
+Tips for making selector like Jquery
+>
+    const $ = document.querySelector.bind(document);
+    $('#container');
+    const $$ = document.querySelectorAll.bind(document);
+    $$('p');
+
+Going up the DOM tree
+>
+    document.querySelector('p').closest('div').closest('.content');
+
+Adding elements
+>
+    const link = document.createElement('a');
+    a.setAttribute('href', '/home');
+    a.className = 'active';
+    a.textContent = 'Home';
+    document.body.appendChild(link);
+Moving elements
+>
+    <!-- beforebegin -->
+    <p>
+    <!-- afterbegin -->
+    foo
+    <!-- beforeend -->
+    </p>
+    <!-- afterend -->
+>
+    <div class="first">
+        <h1>Title</h1>
+    </div>
+    <div class="second">
+        <h2>Subtitle</h2>
+    </div>
+
+and the h2 is inserted after the h1:
+>
+    const h1 = document.querySelector('h1');
+    const h2 = document.querySelector('h2');
+    h1.insertAdjacentElement('afterend', h2)
+
+MutationObserver : Watch element when its attributes change
+
+https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
+>
+    // Select the node that will be observed for mutations
+    const targetNode = document.getElementById('some-id');
+
+    // Options for the observer (which mutations to observe)
+    const config = { attributes: true, childList: true, subtree: true };
+
+    // Callback function to execute when mutations are observed
+    const callback = function(mutationsList, observer) {
+        for(let mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                console.log('A child node has been added or removed.');
+            }
+            else if (mutation.type === 'attributes') {
+                console.log('The ' + mutation.attributeName + ' attribute was modified.');
+            }
+        }
+    };
+
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+
+    // Later, you can stop observing
+    observer.disconnect();
