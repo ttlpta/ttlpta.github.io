@@ -520,8 +520,26 @@
           <div class="row">
             <div class="col-md-12">
               <h2>I'm available for freelance project</h2>
-              <a href="#about" class="btn btn-default">Get Hired</a>
             </div><!-- /.col-md-12 -->
+			<div class="col-md-12" style="margin-top: 14px;">
+				<!--
+				PeoplePerHour Profile Widget
+				The div#pph-hire me is the element
+				where the iframe will be inserted.
+				You may move this element wherever
+				you need to display the widget
+				-->
+				<div id="pph-hireme"></div>
+				<script type="text/javascript">
+				(function(d, s) {
+					var useSSL = 'https:' == document.location.protocol;
+					var js, where = d.getElementsByTagName(s)[0],
+					js = d.createElement(s);
+					js.src = (useSSL ? 'https:' : 'http:') +  '//www.peopleperhour.com/hire/4187256788/3432946.js?width=728&height=115&orientation=horizontal&theme=light&rnd='+parseInt(Math.random()*10000, 10);
+					try { where.parentNode.insertBefore(js, where); } catch (e) { if (typeof console !== 'undefined' && console.log && e.stack) { console.log(e.stack); } }
+				}(document, 'script'));
+				</script>
+			</div>
           </div><!-- /.row -->
         </div><!-- /.container -->
       </div><!-- /.hire-section-bg -->
@@ -551,7 +569,7 @@
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/js/jquery.stellar.min.js"></script>
 	<script src="assets/js/jquery.sticky.js"></script>
-  <script src="assets/js/smoothscroll.js"></script>
+  <!-- <script src="assets/js/smoothscroll.js"></script> -->
 	<script src="assets/js/wow.min.js"></script>
   <script src="assets/js/jquery.countTo.js"></script>
   <script src="assets/js/jquery.inview.min.js"></script> 
