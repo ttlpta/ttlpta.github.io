@@ -1,59 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <style>
-    :root {
-      --mainbg: #ffb9b9;
-      --hoverbg: #ff9c9c;
-      --maincolor: #ffffffcf;
-      --hovercolor: #fff;
-      --shadowcolor: #ccc;
-    }
+  <head>
+    <style>
+      :root {
+        --mainbg: #ffb9b9;
+        --hoverbg: #ff9c9c;
+        --maincolor: #ffffffcf;
+        --hovercolor: #fff;
+        --shadowcolor: #ccc;
+      }
 
-    body {
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: aliceblue;
-    }
-    a {
-      background-color: var(--hoverbg);
-      color: var(--maincolor);
-      display: inline-block;
-      padding: 10px 50px;
-      user-select: none;
-      cursor: pointer;
-      margin: 5px
-    }
-    a:hover {
-      color: var(--hovercolor);
-    }
-    /* BTN1 */
-    #btn1 {
-      transform: perspective(1px) translateZ(0);
-      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-      position: relative;
-    }
-    #btn1:hover:before {
-      transform: scaleX(0)
-    }
-    #btn1:before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--mainbg);
-      transform: scaleX(1);
-      transform-origin: center;
-      transition-duration: 0.5s;
-      transition-timing-function: ease-out;
-    }
-    /* BTN1 */
-    /* BTN2 */
+      body {
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #4a4545;
+      }
+      a {
+        background-color: var(--hoverbg);
+        color: var(--maincolor);
+        display: inline-block;
+        padding: 10px 50px;
+        user-select: none;
+        cursor: pointer;
+        margin: 5px;
+      }
+      a:hover {
+        color: var(--hovercolor);
+      }
+      /* BTN1 */
+      #btn1 {
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        position: relative;
+      }
+      #btn1:hover:before {
+        transform: scaleX(0);
+      }
+      #btn1:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--mainbg);
+        transform: scaleX(1);
+        transform-origin: center;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-out;
+      }
+      /* BTN1 */
+      /* BTN2 */
       #btn2 {
         transform: perspective(1px) translateZ(0);
         box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -78,21 +78,24 @@
         left: 5px;
         height: 8px;
         width: 90%;
-        background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+        background: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0.35) 0%,
+          rgba(0, 0, 0, 0) 80%
+        );
         transition: opacity, transform 0.5s;
       }
-    /* BTN2 */
-    /* BTN3 */
+      /* BTN2 */
+      /* BTN3 */
       #btn3 {
         transform: perspective(1px) translateZ(0);
         box-shadow: 0 0 1px rgba(0, 0, 0, 0);
         position: relative;
         transition: transform 0.5s;
-
       }
       #btn3:hover:before {
         animation-name: btn3animate;
-        animation-duration: 0.5s; 
+        animation-duration: 0.5s;
         background: var(--hoverbg);
       }
       #btn3:before {
@@ -112,35 +115,35 @@
           opacity: 0;
         }
       }
-    /* BTN3 */
-    /* BTN4 */
+      /* BTN3 */
+      /* BTN4 */
       #btn4 {
         background-color: var(--mainbg);
       }
       #btn4:hover {
-        animation-name : btn4animate;
+        animation-name: btn4animate;
         animation-duration: 0.5s;
         background-color: var(--hoverbg);
       }
       @keyframes btn4animate {
         0% {
-          transform: rotate(0deg) translate3d(0, 0, 0)
+          transform: rotate(0deg) translate3d(0, 0, 0);
         }
         25% {
-          transform: rotate(3deg) translate3d(0, 0, 0)
+          transform: rotate(3deg) translate3d(0, 0, 0);
         }
         50% {
-          transform: rotate(-3deg) translate3d(0, 0, 0)
+          transform: rotate(-3deg) translate3d(0, 0, 0);
         }
         75% {
-          transform: rotate(1deg) translate3d(0, 0, 0)
+          transform: rotate(1deg) translate3d(0, 0, 0);
         }
         100% {
-          transform: rotate(0deg) translate3d(0, 0, 0)
+          transform: rotate(0deg) translate3d(0, 0, 0);
         }
       }
-    /* BTN4 */
-    /* BTN5 */
+      /* BTN4 */
+      /* BTN5 */
       #btn5 {
         position: relative;
         display: inline-block;
@@ -198,8 +201,8 @@
         transform: rotate(45deg);
         z-index: -1;
       }
-    /* BTN5 */
-    /* BTN6 */
+      /* BTN5 */
+      /* BTN6 */
       #btn6 {
         position: relative;
         display: inline-block;
@@ -210,8 +213,9 @@
         transform-style: preserve-3d;
         transform: translateZ(-25px);
       }
-      #btn6 .front, #btn6 .back {
-        padding: 10px 50px; 
+      #btn6 .front,
+      #btn6 .back {
+        padding: 10px 50px;
         margin: 0px;
       }
       #btn6 .front {
@@ -226,7 +230,7 @@
         overflow: hidden;
       }
       #btn6 .back:after {
-        content: '';
+        content: "";
         position: absolute;
         width: 120%;
         height: 50%;
@@ -234,18 +238,17 @@
         transform: rotate(10deg);
         top: -17px;
         left: -30px;
-        transition: all .9s ease;
-        transition-delay: .15s;
+        transition: all 0.9s ease;
+        transition-delay: 0.15s;
       }
-
 
       #btn6:hover {
         transform: translateZ(-24px) rotateX(-90deg);
       }
-      #btn6:hover .back{
+      #btn6:hover .back {
         background-color: var(--mainbg);
       }
-      #btn6:hover .back{
+      #btn6:hover .back {
         background-color: var(--hoverbg);
       }
 
@@ -253,15 +256,15 @@
         top: -40px;
         transform: rotate(6deg);
       }
-    /* BTN6 */
-    /* BTN7 */
+      /* BTN6 */
+      /* BTN7 */
       #btn7 {
         position: relative;
         display: inline-block;
       }
       #btn7:before {
-        content: '';
-        position:absolute;
+        content: "";
+        position: absolute;
         top: -5px;
         left: -5px;
         width: 40%;
@@ -269,11 +272,11 @@
         border-left: 2px solid var(--mainbg);
         border-top: 2px solid var(--mainbg);
         transition: all 0.8s ease;
-        transition-delay: .15s;
+        transition-delay: 0.15s;
       }
       #btn7:after {
-        content: '';
-        position:absolute;
+        content: "";
+        position: absolute;
         bottom: -5px;
         right: -5px;
         width: 40%;
@@ -282,23 +285,88 @@
         transition: all 0.5s ease;
         border-bottom: 2px solid var(--mainbg);
       }
-      #btn7:hover::before, #btn7:hover::after {
+      #btn7:hover::before,
+      #btn7:hover::after {
         width: 107%;
         height: 130%;
         border: 2px solid var(--mainbg);
       }
-    /* BTN7 */
-  </style>
-</head>
-<body>
-  <a id="btn1">hover me!</a>
-  <a id="btn2">hover me!</a>
-  <a id="btn3">hover me!</a>
-  <a id="btn4">hover me!</a>
-  <a id="btn5">hover me!</a>
-  <a id="btn6">
-    <div class="front">hover me!</div>
-    <div class="back">thank you!</div>
-  </a>
-  <a id="btn7">hover me!</a>
-</body>
+      /* BTN7 */
+      /* BTN8 */
+      #btn8 {
+        margin-top: 10px;
+        background-color: transparent;
+        position: relative;
+      }
+      #btn8::before {
+        content: "";
+        height: 40px;
+        background-color: #fff;
+        width: 40px;
+        position: absolute;
+        right: calc(100% - 20px);
+        top: 0px;
+        opacity: 0.5;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+      .mystyle::before {
+        animation: width-before-reserve 1s;
+      }
+      #btn8:hover::before {
+        left: calc(100% - 20px);
+        animation: width-before 1s;
+      }
+      @keyframes width-before {
+        0% {
+          left: -20px;
+          width: 40px;
+        }
+        50% {
+          left: -20px;
+          width: calc(100% + 20px);
+        }
+        100% {
+          left: calc(100% - 20px);
+          width: 40px;
+        }
+      }
+
+      @keyframes width-before-reserve {
+        0% {
+          right: -20px;
+          width: 40px;
+        }
+        50% {
+          right: -20px;
+          width: calc(100% + 20px);
+        }
+        100% {
+          right: calc(100% - 20px);
+          width: 40px;
+        }
+      }
+      /* BTN8 */
+    </style>
+  </head>
+  <body>
+    <a id="btn1">hover me!</a>
+    <a id="btn2">hover me!</a>
+    <a id="btn3">hover me!</a>
+    <a id="btn4">hover me!</a>
+    <a id="btn5">hover me!</a>
+    <a id="btn6">
+      <div class="front">hover me!</div>
+      <div class="back">thank you!</div>
+    </a>
+    <a id="btn7">hover me!</a>
+    <a id="btn8" onmouseover="fn(this)">hover me!</a>
+  </body>
+  <script>
+    function fn(el) {
+      el.classList.add("mystyle");
+    }
+  </script>
+</html>
