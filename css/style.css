@@ -176,6 +176,9 @@ figure>figcaption {
 .text-white {
   color: #FFF;
 }
+pre {
+  white-space: pre-wrap;
+}
 
 /*----------------------------*\
 	section
