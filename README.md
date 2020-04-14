@@ -1,4 +1,4 @@
-## Mục lục - Table 
+## Mục lục - Table of content
 1, JS - Closure : [VI]  - https://ttlpta.github.io/closure-javascript.html \
 2, Lập trình - Nên học gì tiếp? : [VI] - https://ttlpta.github.io/decide-what-to-learn.html \
 3, Thư gửi con trai - sinh nhật 1 tuổi : [VI] - https://ttlpta.github.io/letter-to-my-son.html \
