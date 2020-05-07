@@ -8,13 +8,13 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 	<!-- Must-have tags for Facebook -->
-	<meta name="description" content="Javascirpt Quicktip - Avoid serial request">
-  <meta name="keywords" content="Javascirpt quicktip, avoid serial request">
+	<meta name="description" content="Javascirpt Quicktip - 10 câu hỏi hay gặp khi phỏng vấn vị trí Javascript Developer">
+  <meta name="keywords" content="Những câu hỏi thường gặp khi phỏng vấn JS, Javascirpt Developer">
 	<meta name="author" content="https://www.facebook.com/tuananh.pham.319 ">
-  <meta property="og:url"                content="https://ttlpta.github.io/avoid-serial-request.html" />
+  <meta property="og:url"                content="https://ttlpta.github.io/10-tips-interview-javascript.html" />
   <meta property="og:type"               content="article" />
-  <meta property="og:title"              content="Javascirpt Quicktip - Avoid serial request" />
-  <meta property="og:description"        content="Javascirpt Quicktip - Avoid serial request" />
+  <meta property="og:title"              content="Javascirpt Quicktip - 10 câu hỏi hay gặp khi phỏng vấn vị trí Javascript Developer" />
+  <meta property="og:description"        content="Javascirpt Quicktip - Những câu hỏi thường gặp khi phỏng vấn JS" />
   <meta property="og:image"              content="https://raw.githubusercontent.com/ttlpta/ttlpta.github.io/master/publics/javascript.png" />
 
 	<!-- Must-have tags for Facebook -->
@@ -36,7 +36,7 @@
 		src="https://connect.facebook.net/vn_VN/sdk.js#xfbml=1&version=v6.0&appId=184112649512085&autoLogAppEvents=1">
 	</script>
 	<!-- FB SHARE -->
-	<title>Javascirpt Quicktip - Avoid serial request</title>
+	<title>Javascirpt Quicktip - Những câu hỏi thường gặp khi phỏng vấn JS</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CMuli:400,700" rel="stylesheet">
@@ -125,16 +125,16 @@
 
 		<!-- PAGE HEADER -->
 		<div id="post-header" class="page-header">
-			<div class="page-header-bg" style="background-image: url('./img/chuyennghe/many-choices.png');" data-stellar-background-ratio="0.5"></div>
+			<div class="page-header-bg" style="background-image: url('./img/chuyennghe/coding-large-img.jpg');" data-stellar-background-ratio="0.5"></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-10">
 						<div class="post-category">
 							<a href="chuyen-nghe.html">Chuyện nghề</a>
 						</div>
-						<h1>Javascirpt Quicktip - Avoid serial request</h1>
+						<h1>10 câu hỏi thường gặp khi phỏng vấn JS</h1>
 						<ul class="post-meta">
-							<li>14 April 2020</li>
+							<li>6 May 2020</li>
 						</ul>
 					</div>
 				</div>
@@ -153,21 +153,75 @@
 				<div class="col-md-12">
 					<!-- post content -->
 					<div class="section-row">
-						Trong các project bạn đã từng tham gia code hoặc sẽ tham gia trong tương lai 
-						, chắc chắn sẽ có ít nhất một lần bạn gặp phải trường hợp phải gọi liên tiếp các API mà 
-						kết quả trả về từ các API đó không phải là input của API tiếp theo hay nói cách khác là các
-						API này hoàn toàn độc lập với nhau. Ví dụ : <br /><br />
-
-
-						<script src="https://gist.github.com/ttlpta/d0d8e83dd0666437c2ceb6b129e1c16b.js"></script>
-
-						<br /><br />
-						Trong trường hợp này, thay vì sử dụng await ở tất cả những Promise. Thay vào đó bạn có thể
-						thực hiện những request này song song với nhau. Điều này sẽ tạo nên khác biệt lớn về 
-						perfomance cho application của bạn. Sau đây là hai cách để bạn có thể thực hiện được điều này 
-						<br /><br />
+						<b>1, Sự khác nhau giữa var và let?</b> <br /><br />
 						
-						<script src="https://gist.github.com/ttlpta/fbffadc3e5cfda3e7225bbf68a86b194.js"></script>
+						Đây là câu hỏi mình hay gặp nhất , về mình tin rất nhiều ae sẽ toang nếu không trả lời được
+						câu hỏi này. Sự khác nhau ở đây là phạm vi làm việc (level of scope). Với var là 
+						funtion-scoped và let là block-scoped. Ví dụ :<br /><br />
+						<script src="https://gist.github.com/ttlpta/9248e51cb5e538b9590c8f07df9f9868.js"></script>
+						<br />
+
+						<b>2, Sự khác nhau giữa == và === ?</b><br /><br />
+
+						Hầu hết ae sẽ trả lời == sẽ so sánh values và === sẽ check cả type của 2 vế. Nhưng rất tiếc
+						câu trả lời này là không đúng, JS engine cho phép == ép type biến của vế bên phải theo type của vế
+						bên trái. và === thì không cho phép điều này.<br /><br />
+						
+						<script src="https://gist.github.com/ttlpta/34e777d7a8d2d68ecfc1a09e8d7c25be.js"></script><br />
+
+						<b>3, "this" là gì?</b><br /><br />
+						Câu trả lời mình hay gặp là "this" trỏ đến instance của 1 class khi được gọi bên trong
+						body của class. Nhưng câu trả lời này là chưa đầy đủ. this tồn tại trong tất cả các function
+						kể cả function đó không nằm trong class nào. Và this sẽ trỏ đến Object chứa cái function đang
+						gọi đến this. <br /><br />
+						<script src="https://gist.github.com/ttlpta/981ca91a355445b01ef328fa36575fd1.js"></script><br />
+
+						<b>4, constructor function là gì?</b><br /><br />
+						Constructor function trong JS cũng không liên quan gì đến class , được gọi với new keyword
+						và trả lại giá trị mà this chứa. Lưu ý là trong constructor function this không trỏ đến
+						object bên ngoài. <br /><br />
+
+						<script src="https://gist.github.com/r3dm1ke/13c0feaae7a93b50bca994854cc6b0d3.js"></script><br />
+
+						<b>5, Convert callback function thành Promise?</b><br /><br />
+						
+						<script src="https://gist.github.com/r3dm1ke/859be580594c46223d120438a3cb5a8a.js"></script><br />
+
+						<b>6, Kết quả của "a" == NaN?</b><br /><br />
+						False. Nếu JS được hiểu như một bài văn xuôi thì chúng ta có thể hiểu. a là 1 chữ cái,
+						1 chữ cái thì không thể 1 số (Not a Number). Nhưng JS không nghĩ vậy, muốn check a là NaN
+						trong trường hợp này ae chỉ có thể sử dụng Number.isNaN(a)?<br /><br />
+
+						<b>7, 0.1 + 0.2 === 0.3?</b><br /><br />
+
+						False. Điều này không chỉ JS bị mà ae có thể gặp trong hầu hết các ngôn ngữ khác. Và kết quả
+						trong phép toán này là ... Ae có thể bật console để tự thưởng thức<br /><br />
+
+
+						<b>8, Các type của biến trong JS?</b><br /><br />
+							- Boolean,<br />
+							- Null,<br />
+							- Undefined<br />
+							- Number<br />
+							- BigInt<br />
+							- String<br />
+							- Symbol<br /><br />
+
+						<b>9, "strict" mode?</b><br /><br />
+
+						Hầu hết dự án mình đang tham gia bây giờ đều được yêu cầu enable "strict" mode trong code.
+						Thêm "use strict"; vào đầu file JS. Strict mode bật lên, JS bắt lỗi nghiêm ngặt hơn như
+						không thể dùng biến chưa khai báo. vv..<br /><br />
+
+
+						<b>10, Output của đoạn code này?</b><br /><br />
+
+
+						undefined. Why? JS không yêu cầu ; ở cuối dòng code như một số ngôn ngữ khác. Trong trường
+						hợp này JS sẽ tự động thêm ; đằng sau return  ở dòng 2 vào cái dòng code từ 3 đến 5 sẽ 
+						chỉ là một Object<br /><br />
+
+
 					</div>
 					<!-- /post content -->
 
