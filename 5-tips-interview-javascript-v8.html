@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<!-- Must-have tags for Facebook -->
+	<meta name="description" content="Javascirpt Quicktip - 5 tips optimize code JS để tăng tối đa 50% performance">
+  <meta name="keywords" content="v8 engine, javascript quick tips, javascript">
+	<meta name="author" content="https://www.facebook.com/tuananh.pham.319 ">
+  <meta property="og:url"                content="https://ttlpta.github.io/5-tips-interview-javascript-v8.html" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Javascirpt Quicktip - 5 tips optimize code JS để tăng tối đa 50% performance" />
+  <meta property="og:description"        content="Dựa vào những feature của V8 , chúng ta có thể optimize performance khi run code JS trên Google Chorme, cũng như các browser khác" />
+  <meta property="og:image"              content="https://raw.githubusercontent.com/ttlpta/ttlpta.github.io/master/publics/javascript.png" />
+
+	<!-- Must-have tags for Facebook -->
+	<!-- GA script -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120682087-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-120682087-1');
+		</script>
+	<!-- GA script -->
+
+
+	<!-- FB SHARE -->
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" 
+		src="https://connect.facebook.net/vn_VN/sdk.js#xfbml=1&version=v6.0&appId=184112649512085&autoLogAppEvents=1">
+	</script>
+	<!-- FB SHARE -->
+	<title>Javascirpt Quicktip - 5 tips optimize code JS để tăng tối đa 50% performance</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CMuli:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+
+<body>
+	<!-- HEADER -->
+	<header id="header">
+		<!-- NAV -->
+		<div id="nav">
+			<!-- Top Nav -->
+			<div id="nav-top">
+				<div class="container">
+					<!-- social -->
+					<ul class="nav-social">
+						<li><a href="https://www.facebook.com/tuananh.pham.319"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/tuan-anh-pham-978863ba/"><i class="fa fa-linkedin"></i></a></li>
+<li><a href="cv.html" title="My resume"><i class="fa fa-graduation-cap"></i></a></li>
+					</ul>
+					<!-- /social -->
+
+					<!-- logo -->
+					<div class="nav-logo">
+						<a href="/" class="logo"><img src="./img/logo.png" alt=""></a>
+					</div>
+					<!-- /logo -->
+
+					<!-- search & aside toggle -->
+					<div class="nav-btns">
+						<button class="aside-btn"><i class="fa fa-bars"></i></button>
+					</div>
+					<!-- /search & aside toggle -->
+				</div>
+			</div>
+			<!-- /Top Nav -->
+
+			<!-- Main Nav -->
+			<div id="nav-bottom">
+				<div class="container">
+					<!-- nav -->
+					<ul class="nav-menu">
+						<li><a href="/">Home</a></li>
+						<li><a href="chuyen-nghe.html">Chuyện nghề</a></li>
+						<li><a href="chuyen-doi.html">Lifestyle</a></li>
+						<li><a href="review-sach.html">Review sách</a></li>
+						<li><a href="chuyen-cua-tui.html">Chuyện của tui</a></li>
+<li><a href="cv.html">About me</a></li>
+					</ul>
+					<!-- /nav -->
+				</div>
+			</div>
+			<!-- /Main Nav -->
+
+			<!-- Aside Nav -->
+			<div id="nav-aside">
+				<ul class="nav-aside-menu">
+					<li><a href="/">Home</a></li>
+						<li><a href="chuyen-nghe.html">Chuyện nghề</a></li>
+						<li><a href="chuyen-doi.html">Lifestyle</a></li>
+						<li><a href="review-sach.html">Review sách</a></li>
+						<li><a href="chuyen-cua-tui.html">Chuyện của tui</a></li>
+<li><a href="cv.html">About me</a></li>
+				</ul>
+				<button class="nav-close nav-aside-close"><span></span></button>
+			</div>
+			<!-- /Aside Nav -->
+		</div>
+		<!-- /NAV -->
+
+		<!-- PAGE HEADER -->
+		<div id="post-header" class="page-header">
+			<div class="page-header-bg" style="background-image: url('./img/chuyennghe/coding-large-img.jpg');" data-stellar-background-ratio="0.5"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10">
+						<div class="post-category">
+							<a href="chuyen-nghe.html">Chuyện nghề</a>
+						</div>
+						<h1>5 tips optimize code JS để tăng tối đa 50% performance</h1>
+						<ul class="post-meta">
+							<li>23 Jun 2020</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /PAGE HEADER -->
+	</header>
+	<!-- /HEADER -->
+
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- post content -->
+					<div class="section-row content-section">
+						<b>V8 engine là gì </b><br/><br/>
+						V8 engine - một JS engine được sử dụng bởi Google Chrome để transpile và compile code JS sang maching code (đoạn script mà browser có thể hiểu được). Dựa vào 
+						những feature của nó chúng ta có thể optimize code nhằm tăng đáng kể được hiệu suất khi brower chạy code của ae (~ 50% theo <a target="_blank"  href="https://www.sessionstack.com/">Session Stack</a>) <br/><br/>
+
+						Trước khi đến với những tips có một số keyword chúng ta cần nắm được, Đó là <b>Hidden Class</b>, và <b>Inline Caching</b>.<br/><br/>
+
+						<b>1, Hidden Class :</b><br/><br/> 
+
+						JS là prototype-based language: Không có class. Với JS, chúng ta có thể dễ dàng add và remove các property khỏi object 
+						sau khi object đã được khởi tạo (điều này rất khác biệt so với các ngôn ngữ như Java, C#). <br/><br/> 
+
+						Hầu hết các trình biên dịch JS sử dụng dictionary-like structures (hash function based) để lưu trữ vị trí của object property trong bộ nhớ. 
+						Điều này có nghĩa là mỗi property của object khi được lưu trữ trong memory sẽ được mark bằng 1 đoạn hash, điều này sẽ
+						giúp việc chúng ta add hay remove property của object dễ dàng. <br/><br/> 
+						
+						Nhưng điều này sẽ ảnh hưởng đến việc khi chúng ta muốn get value của property đó, JS sẽ tra quyển từ điển chứa list các hash key đó để tìm ra value 
+						của propety giống như việc chúng ta tra từ điển tiếng anh vậy.
+						Điều này sẽ làm cho việc truy xuất giá trị của property của object trong JS sẽ tốn kém hơn so với 
+						các ngôn ngữ Java và C#. Vì các object trong Java, C# không thêm hay add các property sau khi đã khởi tạo nên 
+						các property sẽ có offset cố định.<br/><br/> 
+
+						Để improve quá trình này, V8 đã sử dụng 1 phương pháp khác thay thế
+						đó là hidden class. Hidden class đơn giản là copy cách làm việc 
+						với Object của java sang JS. Tức là trong thời gian compile code JS
+						sang machine code, V8 sẽ tạo những object ẩn , cố định và không thể
+						dynamic thêm bớt property.<br/><br/>
+
+						Ví dụ <br/><br/>
+
+						<pre>
+							function Point(x, y) {
+								this.x = x;
+								this.y = y;
+							}
+							var p1 = new Point(1, 2)
+						</pre>
+
+						<br/><br/>
+						Trong ví dụ trên V8 sẽ tạo 1 hidden class gọi là C0 tương ứng với Object Point. <br/><br/>
+						- Line 1, khi mới declare function Point, tương ứng object C0 sẽ được tạo và trống.<br/>
+
+						<img src="https://miro.medium.com/max/1024/1*pVnIrMZiB9iAz5sW28AixA.png" /><br/>
+						- Line 2, chúng ta define property x cho object Point. V8 sẽ tạo 1 hidden class thứ 2 gọi là C1 , C1 được tạo dựa theo C0. 
+						
+						<img src="https://miro.medium.com/max/1024/1*QsVUE3snZD9abYXccg6Sgw.png" /><br/>
+						
+						C1 sẽ có vị trí trên memory nơi mà property có thể tìm thấy 
+						(liên quan đến object pointer) . Trong trường hợp này x được lưu trữ
+						ở offset 0, điều này có nghĩa là khi view object point trong object
+						thì vị trí đầu tiên là x. V8 sẽ mark V0 là một "class transition" , 
+						Lúc này hidden class đã được switch từ C0 sang C1<br/><br/>
+
+						Quá trình này sẽ lặp lại tương tư khi line "this.y = y" được executed. Và sau quá trình này hidden class sẽ được update bằng C2.<br/>
+
+						<img src="https://miro.medium.com/max/1400/1*spJ8v7GWivxZZzTAzqVPtA.png"/>
+						
+						Việc chuyển tiếp hidden class từ C0 sang C1 sang C2 phụ thuộc vào  properties được add vào object.<br/>
+
+						Chúng ta sẽ xem 1 đoạn ví dụ việc add property không theo 1 thứ tự vào các object sẽ ảnh hưởng đến performance.<br/><br/>
+
+						VD: <br/><br/>
+						<pre>
+							function Point(x, y) {
+									this.x = x;
+									this.y = y;
+							}
+						
+							var p1 = new Point(1, 2);
+							p1.a = 5;
+							p1.b = 6;
+							var p2 = new Point(3, 4);
+							p2.b = 7;
+							p2.a = 8;
+							
+						</pre>
+					<br/>
+					<br/>
+
+						sau khi p1, p2 được gán cho 2 object Point mới được khởi tạo,
+						thì ngay tại lúc này p1, p2 sẽ cùng có 1 hidden class, nhưng tiếp theo
+						khi p1 được gán property a, p2 được gán property b thì đến khi kết
+						thúc quá trình excute thì p1 p2 sẽ được gán cho 2 hidden class khác nhau
+						Vì vậy trong những trường hợp như này, sẽ là tốt hơn nếu các dynamic
+						property được khởi tạo cùng 1 thứ tự như vậy thì hidden class sẽ được
+						tái sử dụng.
+						<br/><br/>
+
+
+						<b>2, Inline Caching </b><br/><br/>
+
+						Đây là cơ chế khi JS engine nhận thấy một function được dùng lại nhiều lần với cùng 1 loại object được truyền vào param. 
+						V8 sẽ cache lại hidden class của object đó. Điều này sẽ giúp bỏ qua trình được quá V8 xử lí để tìm cách access vào object's
+						properties và thay vào đó là sử dụng thông tin đã được lưu trữ từ những quá trình xử lí trước đối với object được truyền
+						vào param. <br/><br/>
+
+						Vậy hidden class và inline caching liên quan với nhau như thế nào? Khi một method được gọi
+						với một object đặc biệt, V8 engine sẽ phải thực hiện quá trình tìm kiếm đến một hidden class 
+						của object đó nhằm xác định offset để truy cập vào 1 property của object. Sau hai lần gọi thành 
+						công đến cùng một method của cùng một hidden class. V8 sẽ bỏ qua quá trình tìm tìm kiếm này 
+						mà đơn giản là add offset của property này đến object pointer của chính nó. Và các lần gọi
+						đến method này sau này , V8 sẽ cho rằng hidden class không thay đổi và sẽ nhảy trực tiếp đến
+						memory sử dụng offset đã được lưu trữ từ lần tìm kiếm trước đó.  <br/><br/>
+
+
+						Inline caching cũng nói lên tầm quan trọng của việc sử dụng các object share hidden class.
+						Nếu chúng ta tạo hai object cùng loại nhưng khác kiểu hidden class. (như ví dụ trong hidden class)
+						thì chúng ta sẽ không thể sử dụng inline caching. <br/><br/>
+
+						<h3>TLDR;</h3>
+
+						1, Methods : Nên sử dung lại một method nhiều lần sẽ tối ưu hết rất nhiều với việc sử dụng
+						một method 1 lần. Vì thế hãy cố gắng chia nhỏ các function, mỗi function nên chỉ có 1 chức
+						năng duy nhất (Pure function) để có thể re-use dễ dàng. tips này căn cứ theo tính 
+						năng Inline Caching của V8 engine.<br/><br/>
+
+						2, Arrays : Tránh sử dụng các sparse array. Sparse Array là các mảng mà các element bên
+						trong nó có key không phải nó các số tăng dầng . <br/><br/>
+						Ví dụ<br/><br/>
+						<pre>
+							const a = [1, , 3, 4, 5];
+							const b = new Array(5);
+						</pre>
+						<br/>
+						<br/>
+						Việc sử dụng mảng dạng này sẽ tốn hiệu năng để access các element trong nó.
+						Tránh khởi tạo trước các mảng lớn , hãy cứ để nó lớn tự nhiên
+						Không xóa element trong mảng bởi vì nó sẽ biến mảng thành Sparse Array. Thay vào đó hãy 
+						dùng Array.filter.
+						<br/>
+						3, Inlining : Không nên sử dụng các function chỉ được gọi 1 lần. Với những case đó nên 
+						thay thế line mà gọi function đó thành body của function đó<br/><br/>
+
+						<img href=""/>
+						<br/><br/>
+						4, Thứ tự của object dynamic properties khi khởi tạo 1 object: 
+						Khi khởi tạo 1 object nhiều lần hay cố gắng sắp xếp thứ tự của các property cùng 1 thứ tự
+						, việc này sẽ giúp các hidden class (hidden class là gì , giải thích bên dưới) có thể share giữa mỗi lần khởi tạo
+						giúp tối ưu performance<br/>
+
+						<script src="https://gist.github.com/ttlpta/023ee887faff2eeaa96565e3c24c24eb.js"></script>
+						<br/><br/>
+						5, Dynacmic Properties: Việc thêm các property vào object sau khi đã khởi tạo chúng. 
+						Như ví dụ ở tip 4, việc sau khi khởi tạo ta add proprety "name", "color" vào Object Dog được gọi là Dynacmic Properties. Thay vào đó hay truyền 
+						tất cả vào param khi khởi tạo 1 object. Bởi vì các Dynamic properties sẽ làm thay đổi và làm
+						chậm các methods đã được optimized bởi hidden class.<br/><br/>
+
+					</div>
+					<!-- /post content -->
+
+					<!-- post share -->
+					<div class="section-row">
+						<div class="post-share">
+							<div class="fb-like" data-layout="button_count" data-action="like" data-size="large" data-share="true"></div>
+						</div>
+					</div>
+					<!-- /post share -->
+					
+
+					<!-- post comments -->
+					<div class="section-row">
+						<div class="section-row">
+							<div class="fb-comments" data-width="100%" 	data-order-by="reverse_time" data-numposts="10"></div>
+						</div>
+					</div>
+					<!-- /post comments -->
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+
+	<!-- FOOTER -->
+	<footer id="footer">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="footer-bottom row">
+				<div class="col-md-12">
+					<div class="contact">
+						<span><i class="fa fa-phone"></i> <a href="tel:038 9695 393"> 038 9695 393</a> </span>
+						<span><i class="fa fa-envelope"></i> <a href="mailto:tuananh200898@gmail.com"> tuananh200898@gmail.com</a></span>
+						<span><i class="fa fa-skype"></i> ttlpta.g</span>
+					</div>
+				</div>
+				<div class="col-md-6 col-md-push-6">
+					<ul class="footer-nav">
+						<li><a href="/">Home</a></li>
+						<li><a href="cv.html">About Me</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 col-md-pull-6">
+					<div class="footer-copyright">
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> - AnhPT <i class="fa fa-heart-o" aria-hidden="true"></i>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</footer>
+	<!-- /FOOTER -->
+
+	<!-- jQuery Plugins -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
