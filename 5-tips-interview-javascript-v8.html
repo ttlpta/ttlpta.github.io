@@ -8,12 +8,12 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 	<!-- Must-have tags for Facebook -->
-	<meta name="description" content="Javascirpt Quicktip - 5 tips optimize code JS để tăng tối đa 50% performance">
+	<meta name="description" content="Javascirpt Quicktip - 5 tips gõ code JS để optimize performance">
   <meta name="keywords" content="v8 engine, javascript quick tips, javascript">
 	<meta name="author" content="https://www.facebook.com/tuananh.pham.319 ">
   <meta property="og:url"                content="https://ttlpta.github.io/5-tips-interview-javascript-v8.html" />
   <meta property="og:type"               content="article" />
-  <meta property="og:title"              content="Javascirpt Quicktip - 5 tips optimize code JS để tăng tối đa 50% performance" />
+  <meta property="og:title"              content="Javascirpt Quicktip - 5 tips gõ code JS để optimize performance" />
   <meta property="og:description"        content="Dựa vào những feature của V8 , chúng ta có thể optimize performance khi run code JS trên Google Chorme, cũng như các browser khác" />
   <meta property="og:image"              content="https://raw.githubusercontent.com/ttlpta/ttlpta.github.io/master/publics/javascript.png" />
 
@@ -36,7 +36,7 @@
 		src="https://connect.facebook.net/vn_VN/sdk.js#xfbml=1&version=v6.0&appId=184112649512085&autoLogAppEvents=1">
 	</script>
 	<!-- FB SHARE -->
-	<title>Javascirpt Quicktip - 5 tips optimize code JS để tăng tối đa 50% performance</title>
+	<title>Javascirpt Quicktip - 5 tips gõ code JS để optimize performance</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CMuli:400,700" rel="stylesheet">
@@ -132,7 +132,7 @@
 						<div class="post-category">
 							<a href="chuyen-nghe.html">Chuyện nghề</a>
 						</div>
-						<h1>5 tips optimize code JS để tăng tối đa 50% performance</h1>
+						<h1>5 tips gõ code JS để optimize performance</h1>
 						<ul class="post-meta">
 							<li>23 Jun 2020</li>
 						</ul>
@@ -154,8 +154,8 @@
 					<!-- post content -->
 					<div class="section-row content-section">
 						<b>V8 engine là gì </b><br/><br/>
-						V8 engine - một JS engine được sử dụng bởi Google Chrome để transpile và compile code JS sang maching code (đoạn script mà browser có thể hiểu được). Dựa vào 
-						những feature của nó chúng ta có thể optimize code nhằm tăng đáng kể được hiệu suất khi brower chạy code của ae (~ 50% theo <a target="_blank"  href="https://www.sessionstack.com/">Session Stack</a>) <br/><br/>
+						V8 engine - một JS engine được sử dụng bởi Google Chrome để compile code JS sang maching code (đoạn script mà browser có thể hiểu được). Dựa vào 
+						những cách thức hoạt động của nó chúng ta có thể optimize code nhằm tăng đáng kể được hiệu suất khi brower chạy code của ae (~ 50% theo <a target="_blank"  href="https://www.sessionstack.com/">Session Stack</a>) <br/><br/>
 
 						Trước khi đến với những tips có một số keyword chúng ta cần nắm được, Đó là <b>Hidden Class</b>, và <b>Inline Caching</b>.<br/><br/>
 
@@ -166,9 +166,7 @@
 
 						Hầu hết các trình biên dịch JS sử dụng dictionary-like structures (hash function based) để lưu trữ vị trí của object property trong bộ nhớ. 
 						Điều này có nghĩa là mỗi property của object khi được lưu trữ trong memory sẽ được mark bằng 1 đoạn hash, điều này sẽ
-						giúp việc chúng ta add hay remove property của object dễ dàng. <br/><br/> 
-						
-						Nhưng điều này sẽ ảnh hưởng đến việc khi chúng ta muốn get value của property đó, JS sẽ tra quyển từ điển chứa list các hash key đó để tìm ra value 
+						giúp việc chúng ta add hay remove property của object dễ dàng. Nhưng điều này sẽ ảnh hưởng đến việc khi chúng ta muốn get value của property đó, JS sẽ tra quyển từ điển chứa list các hash key đó để tìm ra value 
 						của propety giống như việc chúng ta tra từ điển tiếng anh vậy.
 						Điều này sẽ làm cho việc truy xuất giá trị của property của object trong JS sẽ tốn kém hơn so với 
 						các ngôn ngữ Java và C#. Vì các object trong Java, C# không thêm hay add các property sau khi đã khởi tạo nên 
@@ -258,18 +256,18 @@
 
 
 						Inline caching cũng nói lên tầm quan trọng của việc sử dụng các object share hidden class.
-						Nếu chúng ta tạo hai object cùng loại nhưng khác kiểu hidden class. (như ví dụ trong hidden class)
-						thì chúng ta sẽ không thể sử dụng inline caching. <br/><br/>
+						Nếu chúng ta tạo hai object cùng loại nhưng khác kiểu hidden class, tức là add các property không theo
+						một thứ tự nhất định (như ví dụ trong hidden class) thì chúng ta sẽ không thể sử dụng inline caching. <br/><br/>
 
 						<h3>TLDR;</h3>
 
 						1, Methods : Nên sử dung lại một method nhiều lần sẽ tối ưu hết rất nhiều với việc sử dụng
 						một method 1 lần. Vì thế hãy cố gắng chia nhỏ các function, mỗi function nên chỉ có 1 chức
-						năng duy nhất (Pure function) để có thể re-use dễ dàng. tips này căn cứ theo tính 
+						năng duy nhất (Pure function) để có thể re-use dễ dàng. tips này dựa theo tính 
 						năng Inline Caching của V8 engine.<br/><br/>
 
 						2, Arrays : Tránh sử dụng các sparse array. Sparse Array là các mảng mà các element bên
-						trong nó có key không phải nó các số tăng dầng . <br/><br/>
+						trong nó có key không phải nó các số incremental . <br/><br/>
 						Ví dụ<br/><br/>
 						<pre>
 							const a = [1, , 3, 4, 5];
@@ -278,24 +276,27 @@
 						<br/>
 						<br/>
 						Việc sử dụng mảng dạng này sẽ tốn hiệu năng để access các element trong nó.
-						Tránh khởi tạo trước các mảng lớn , hãy cứ để nó lớn tự nhiên
+						Tránh khởi tạo trước các mảng lớn, hãy cứ để nó grow tự nhiên.
+						<br/>
 						Không xóa element trong mảng bởi vì nó sẽ biến mảng thành Sparse Array. Thay vào đó hãy 
 						dùng Array.filter.
-						<br/>
+						<br/><br/>
 						3, Inlining : Không nên sử dụng các function chỉ được gọi 1 lần. Với những case đó nên 
 						thay thế line mà gọi function đó thành body của function đó<br/><br/>
 
-						<img href=""/>
+						<img src="https://miro.medium.com/max/512/0*RRgTDdRfLGEhuR7U.png"/>
 						<br/><br/>
-						4, Thứ tự của object dynamic properties khi khởi tạo 1 object: 
-						Khi khởi tạo 1 object nhiều lần hay cố gắng sắp xếp thứ tự của các property cùng 1 thứ tự
-						, việc này sẽ giúp các hidden class (hidden class là gì , giải thích bên dưới) có thể share giữa mỗi lần khởi tạo
-						giúp tối ưu performance<br/>
+						4, Thứ tự của object dynamic properties khi khởi tạo 1 object: <br/>
+						Khi khởi tạo 1 object nhiều lần hãy cố gắng sắp xếp thứ tự của các property cùng 1 thứ tự
+						, việc này sẽ giúp các hidden class có thể share giữa mỗi lần khởi tạo
+						giúp tối ưu performance<br/><br/>
 
 						<script src="https://gist.github.com/ttlpta/023ee887faff2eeaa96565e3c24c24eb.js"></script>
 						<br/><br/>
-						5, Dynacmic Properties: Việc thêm các property vào object sau khi đã khởi tạo chúng. 
-						Như ví dụ ở tip 4, việc sau khi khởi tạo ta add proprety "name", "color" vào Object Dog được gọi là Dynacmic Properties. Thay vào đó hay truyền 
+						5, Dynacmic Properties: Nên tránh việc thêm các property vào object sau khi đã khởi tạo chúng. 
+						Như ví dụ ở tip 4, việc sau khi khởi tạo ta add proprety "name", "color" vào Object Dog được gọi là Dynacmic Properties. 
+						<br /><br />
+						==> Thay vào đó hay truyền 
 						tất cả vào param khi khởi tạo 1 object. Bởi vì các Dynamic properties sẽ làm thay đổi và làm
 						chậm các methods đã được optimized bởi hidden class.<br/><br/>
 
