@@ -33,7 +33,8 @@ RESPONSIVE
 
 body {
   font-family: 'Muli', sans-serif;
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 28px;
   color: #505050;
   font-weight: 400;
   overflow-x: hidden;
