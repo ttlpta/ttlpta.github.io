@@ -310,3 +310,162 @@ https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
     
     console.log('===>', newArray);
     console.timeEnd('time-solution2'); // time-solution2: 1438.924072265625ms
+
+## Function curry how to write add(2)(3)(4)
+
+>    
+    function fixCurry(fn, totalArgs){
+        totalArgs = totalArgs ||fn.length
+            return function recursor(){
+                return arguments.length<totalArgs?recursor.bind(this, ...arguments): fn.call(this, ...arguments);
+            }
+    }
+
+    var add = fixCurry((a,b,c)=>a+b+c); //fn = summation function
+    > console.log(add(1,2, 3))  // output: 6
+    > console.log(add(1)(2,3)) // output: 6
+    > console.log(add(1)(3)(2)) // output: 6
+    > console.log(add(1,2)(3)) // output: 6
+
+## No for/while
+>
+    const getElements = (selector) => {
+        return Array.from(document.querySelectorAll(selector));
+    };
+
+    const getRemover = (el) => {
+        return (className) => {
+            el.classList.remove(className);
+            return el;
+        };
+    };
+
+    const els = getElements('.box')
+        .map(getRemover)
+        .map(removeClass => removeClass('hide'));
+
+    console.log(els);
+
+## Function Composition : Compose
+
+>   
+    const compose = (...fns) => {
+        return fns.reduce((f, g) => (x) => f(g(x)));
+    };
+    const quăng_cho_tao_cái_thớt = compose(móc, chà, khoan, bào, sấy, cưa); // móc, chà, khoan, bào .. là function
+    const thớt = quăng_cho_tao_cái_thớt('khúc gỗ');
+    console.log(thớt); 
+
+## Function Composition : Pipe ( Ngược chiều với compose )
+
+> 
+    const pipe = (...fns) => {
+        return fns.reduce((f, g) => (x) => g(f(x)));
+    };
+
+## Elegant patterns in modern JavaScript: Ice Factory
+
+>
+    // Prevent this
+    
+    export default class ShoppingCart {
+        constructor({db}) {
+            this.db = db
+        }
+        
+        addProduct (product) {
+            this.db.push(product)
+        }
+        
+        empty () {
+            this.db = []
+        }
+        get products () {
+            return Object
+            .freeze([...this.db])
+        }
+        removeProduct (id) {
+            // remove a product 
+        }
+        // other methods
+    }
+    // someOtherModule.js
+    const db = [] 
+    const cart = new ShoppingCart({db})
+    cart.addProduct({ 
+    name: 'foo', 
+    price: 9.99
+    })
+
+    // Instead by this : Ice Factory
+    
+    export default function makeShoppingCart({
+        db
+    }) {
+        return Object.freeze({
+            addProduct,
+            empty,
+            getProducts,
+            removeProduct,
+            // others
+        })
+        function addProduct (product) {
+            db.push(product)
+        }
+        
+        function empty () {
+            db = []
+        }
+        function getProducts () {
+            return Object
+            .freeze([...db])
+        }
+        function removeProduct (id) {
+            // remove a product
+        }
+        // other functions
+        }
+    // someOtherModule.js
+    const db = []
+    const cart = makeShoppingCart({ db })
+    cart.addProduct({ 
+        name: 'foo', 
+        price: 9.99
+    })
+
+    // cart.getProducts();
+
+    // How to inheritance : Right now use object composition instead of inheritance to reuse.
+
+    function makeProductList({ productDb }) {
+        return Object.freeze({
+            addProduct,
+            empty,
+            getProducts,
+            removeProduct,
+            // others
+        )}
+        
+        // definitions for 
+        // addProduct, etc…
+    }
+
+    function makeShoppingCart(productList) {
+        return Object.freeze({
+            items: productList,
+            someCartSpecificMethod,
+            // …
+        )}
+
+        function someCartSpecificMethod () {
+            // code 
+            }
+        }
+    }
+
+    const productDb = []
+    const productList = makeProductList({ productDb })
+    const cart = makeShoppingCart(productList)
+
+
+
