@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<!-- Must-have tags for Facebook -->
+	<meta name="description" content="Web Architecture 101">
+	<meta name="keywords" content="Web Architecture">
+	<meta name="author" content="https://www.facebook.com/tuananh.pham.319 ">
+	<meta property="og:url"                content="https://ttlpta.github.io/web-architecture-101.html" />
+	<meta property="og:type"               content="article" />
+	<meta property="og:title"              content="Web Architecture 101" />
+	<meta property="og:description"        content="Các thành phần của một hệ thống website" />
+	<meta property="og:image"              content="https://raw.githubusercontent.com/ttlpta/ttlpta.github.io/master/publics/img2.jpg" />
+
+	<!-- Must-have tags for Facebook -->
+	<!-- GA script -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120682087-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-120682087-1');
+		</script>
+	<!-- GA script -->
+	<!-- FB SHARE -->
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" 
+		src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=184112649512085&autoLogAppEvents=1">
+	</script>
+	<!-- FB SHARE -->
+
+	<title>Web Architecture 101</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CMuli:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+
+<body>
+	<!-- HEADER -->
+	<header id="header">
+		<!-- NAV -->
+		<div id="nav">
+			<!-- Top Nav -->
+			<div id="nav-top">
+				<div class="container">
+					<!-- social -->
+					<ul class="nav-social">
+						<li><a href="https://www.facebook.com/tuananh.pham.319"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/tuan-anh-pham-978863ba/"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="cv.html" title="My resume"><i class="fa fa-graduation-cap"></i></a></li>
+					</ul>
+					<!-- /social -->
+
+					<!-- logo -->
+					<div class="nav-logo">
+						<a href="/" class="logo"><img src="./img/logo.png" alt=""></a>
+					</div>
+					<!-- /logo -->
+
+					<!-- search & aside toggle -->
+					<div class="nav-btns">
+						<button class="aside-btn"><i class="fa fa-bars"></i></button>
+					</div>
+					<!-- /search & aside toggle -->
+				</div>
+			</div>
+			<!-- /Top Nav -->
+
+			<!-- Main Nav -->
+			<div id="nav-bottom">
+				<div class="container">
+					<!-- nav -->
+					<ul class="nav-menu">
+						<li><a href="/">Home</a></li>
+						<li><a href="chuyen-nghe.html">Chuyện nghề</a></li>
+						<li><a href="chuyen-doi.html">Lifestyle</a></li>
+						<li><a href="review-sach.html">Review sách</a></li>
+						<li><a href="chuyen-cua-tui.html">Chuyện của tui</a></li>
+						<li><a href="cv.html">About me</a></li>
+					</ul>
+					<!-- /nav -->
+				</div>
+			</div>
+			<!-- /Main Nav -->
+
+			<!-- Aside Nav -->
+			<div id="nav-aside">
+				<ul class="nav-aside-menu">
+					<li><a href="/">Home</a></li>
+						<li><a href="chuyen-nghe.html">Chuyện nghề</a></li>
+						<li><a href="chuyen-doi.html">Lifestyle</a></li>
+						<li><a href="review-sach.html">Review sách</a></li>
+						<li><a href="chuyen-cua-tui.html">Chuyện của tui</a></li>
+<li><a href="cv.html">About me</a></li>
+				</ul>
+				<button class="nav-close nav-aside-close"><span></span></button>
+			</div>
+			<!-- /Aside Nav -->
+		</div>
+		<!-- /NAV -->
+
+		<!-- PAGE HEADER -->
+		<div id="post-header" class="page-header">
+			<div class="page-header-bg" style="background-image: url('./img/chuyennghe/coding-large-img.jpg');" data-stellar-background-ratio="0.5"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10">
+						<div class="post-category">
+							<a href="chuyen-nghe.html">Chuyện nghề</a>
+						</div>
+						<h1>Các thành phần cơ bản của một hệ thống website</h1>
+						<p class="text-white">Bước từ 0 đến 1 để trở thành Solution Architecture</p>
+						<ul class="post-meta">
+							<li>28 Sep 2020</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /PAGE HEADER -->
+	</header>
+	<!-- /HEADER -->
+
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- post content -->
+					<div class="section-row">
+						Dưới đây là kiến trúc điển hình nhất được các hệ thống website hiện nay áp dụng<br /><br />
+						<img src="./img/chuyennghe/web-architecture.png" alt=""/>
+						
+						<p class="text-des">Hệ thống website <a href="https://www.storyblocks.com/">Storyblocks</a></p>
+						
+						Sau khi user nhập URL, browser sẽ gửi một request đến server DNS. Server DNS sẽ tìm kiếm IP của server theo domain name và connect đến server của website. <br /><br />
+
+						Trước khi request đến được với web server, request đó sẽ hit hệ thống load balancer của StoryBlocks, tại đây request sẽ được đưa đến một cách ngẫu nhiên tới 1 / 10 server để xử lí. <br /><br />Storyblocks cho phép tìm kiếm theo màu sắc của hình ảnh, nhưng việc tính toán để lấy được màu sắc chính của một bức ảnh sẽ không được thực hiện đồng bộ với việc trả ảnh về cho user, tức là chỉ trả ảnh sau khi lấy được màu sắc chính của bức ảnh. Để thực hiện tính năng này, Storyblocks sẽ gửi job này đến một job queue, và việc tính toán sẽ được xử lí một cách bất đồng bộ với quá trình trả ảnh tới user.<br /><br />
+						Ngoài ra, để tìm được cả những chiếc ảnh có chủ đề liên quan, Storyblocks gửi 1 request to hệ thống full text search với title của ảnh sẽ là input. Đối với user sử dụng account, kết quả tìm kiếm sẽ được lưu vào cùng thông tin của user, dữ liệu sẽ được sử dụng analytic sau này. 
+						<br /><br />
+						Lúc này tại web server được chọn sẽ bắt đầu render view (HTML) và trả về cho browser của user. JS và CSS của page sẽ được load từ hệ thống CDN 
+						<br /><br />
+						After all, trang web sẽ được hiển thị đến user.
+						<br /><br />
+						Tổng quan là thế, bây giờ chúng ta sẽ đi vào chi tiếp từng thành phần ... <br /><br />
+						<h4>1, DNS</h4>
+
+						DNS (DOMAIN NAME SYSTEM) đây là 1 công nghệ xương sống với tất cả website trên thế giới. Đơn giản có thể hiểu DNS là 1 quyển danh bạ : Tên chúng ta chính là domain name , và số điện thoại chính là rải IP của server web cái chúng ta request đến. Sau khi user nhập domain name vào thanh điều hướng của browser, domain này sẽ được gửi đến DNS và từ đó map ra dải IP tương ứng, từ đó user có thể request đến đúng web server.<br /><br />
+						
+						<h4>2, LOAD BALANCER</h4>
+						Trước khi tìm hiểu load balancer, chúng ta cần biết về một khái niệm về việc scaling application theo chiều ngang và scaling theo chiều dọc. Chiều ngang có nghĩa là bạn thêm nhiều machines vào system, còn chiều dọc có nghĩa là chúng ta tăng sức mạnh cho server (nhiều RAM hơn, nhiều CPU hơn,...)<br /><br />
+						Khi scaling 1 hệ thống web, scale theo chiều ngang thường được cân nhắc áp dụng trước bởi vì khi gặp những trouble như rớt mạng, server crash, hay khù khoằm hơn là mất điện, việc có thêm 1 server cho phép bạn yên tâm là hệ thống web của bạn vẫn có thể hoạt động. Và 1 lí do đơn giản nữa là bạn có thể dễ dàng có 400 con server RAM 8G hơn là 1 con máy lắp 400 con RAM 8G.<br /><br />
+
+						OK, quay lại load balancer, đây như là 1 khái niệm cơ bản nhất khi ta muốn scaling hệ thống theo chiều ngang. Load balancer như người điều phối request đến một trong những web server của chúng ta, những server này phải là bản sao của nhau, phải giống nhau tới từng cầu hình, bất cứ server nào trong hệ thống , cũng xử lí request 1 cách giống nhau, return về 1 data giống nhau. <br /><br />
+						Nhiệm vụ duy nhất của load balancer là việc chia tải sao cho không server nào bị quá tải.<br /><br />
+
+						<h4>3, WEB SERVER</h4>
+
+						Ở high level thì server web rất dễ để có thể mô tả, chúng xử lí request của user và trả về HTML để browser của user show up. Để làm việc này chúng giao tiếp với database, caching, job queue, các services, data queue,... và để ra lệnh cho server làm việc theo ý chúng ta, ae phải dùng các ngôn ngữ lập trình như PHP, JS, Ruby, and Java<br /><br />
+
+						<h4>4, DATABASE</h4>
+
+						Mọi ứng dụng đều cần 1 hoặc nhiều database để lưu trữ thông tin. Tùy vào loại database sẽ cung cấp các cách để thiết kế kiến trúc data. Ngoài ra database sẽ support các tính năng: thêm , sửa xóa data, thực hiện các tính toán dựa trên data hiện tại. Có 2 loại database hiện nay SQL (Structured Query Language) và NoSQL (Non-Structured Query Language)<br /><br />
+
+
+						<h4>5, CACHING</h4>
+
+						Caching là kho lưu trữ dữ liệu theo kiểu key - value (VD: name - TuanAnh, age - 18, ...) việc này giúp đơn giản hóa nhất có thể việc lưu và tìm kiếm thông tin nhanh nhất. Một ứng dụng web thường sử dụng hệ thống caching để lưu kết quả một phép tính phực tạp hay kết quả từ database, external service , có khi cả HTML. Có 2 công nghệ caching được sử dụng rộng rãi nhất là : Redis và Memcache<br />
+
+						VD: Google cache kết quả tìm kiếm cho "Dog", Facebook cache các bài post, data friends của bạn<br /><br />
+						
+						<h4>6, JOB QUEUE và JOB SERVER</h4>
+
+						Các ứng dụng web hiện nay thường xử lí bất đồng bộ 1 task nào đó song song với task chính là phản hồi với request của user. Ví dụ: như việc chat qua lại giữa 2 user, để giảm độ trễ của msg từ người gửi đến người nhận , việc save msg vào db sẽ được cho vào 1 job queue để thực hiện song song với việc trả về tin nhắn cho người nhận.<br /><br />
+
+						Có rất nhiều kiến trúc cho job queue này, nhưng kiến trúc phổ biến nhất là bao gồm 2 thành phần : 1 là queue để chứa các jobs và 2 là 1 hoặc nhiều server (workers) để thực hiện các job này<br /><br />
+						Một job queue sẽ được thực hiện theo thứ tự FIFO (First In, First Out). Job server sẽ thăm dò queue để check xem có job nào để thực hiện không nếu có sẽ pop ra và thực hiện chúng.<br /><br />
+
+						<h4>7, FULL-TEXT SEARCH SERVICE</h4>
+
+						Để phục vụ cho việc search theo keyword của user có thể trả về nhiều kết quả liên quan nhất trong thời gian nhanh nhất, chúng ta thường sử dụng 1 công nghệ được gọi là "full-text search", việc này tận dụng <a href="https://en.wikipedia.org/wiki/Inverted_index">inverted index</a> để tăng performance cho việc search. <br /><br />
+						<img src="https://miro.medium.com/max/561/1*gun_BpdDH9KrNna1NnaocA.png"/><br /><br />
+						Platform full-text search phổ biến nhất là Elasticsearh, ngoài ra các DB như Mysql, cũng support việc Full text search. <br /><br />
+
+						<h4>8, MICROSERVICES</h4>
+						Anh em hình dung 1 ngày đẹp trời, 1 ông AnhPT là dev của 1 website E-commerce, code như shit làm hỏng phần checkout , khiến server crash, tất nhiên lúc đó client sẽ không thể truy cập vào website được nữa. Để giảm thiểu rủi ro cho việc này, tức là vẫn không thể checkout được nhưng user vẫn có thể xem những product yêu thích, vẫn add to cart..v..v làm những chức năng không liên quan đến phần checkout, người ta đã phát mình ra mô hình các service chạy như những appicaltion riêng biệt. Bạn hình dung việc này như việc trong 1 hệ thống web sẽ có những website con có db riêng, có hệ thống caching riêng v.v. Tất nhiên chúng sẽ không exposed  ra ngoài, mà chỉ tương tác nội bộ với nhau qua API.<br /><br />
+						Ví dụ: trong 1 website E-commerce, ae sẽ có :<br /><br />
+						- Account service : chỉ dể để xử lí các  nghiệp vụ liên quan đến user.<br />
+						- Product service : chỉ dể để xử lí các  nghiệp vụ liên quan đến product.<br />
+						- Payment service : <br />
+						....<br /><br />
+
+						<h4>9, DATA</h4>
+						Ngày nay, các công ty tồn tại được hay không là do việc họ xử lí data tốt đến mức nào. Khi web đã nở đến một mức độ nhất đinh thì việc phân tích data về user interactions là công việc tiếp theo nên làm. <br /><br />
+
+						Có 3 giai đoạn chính : <br /><br />
+						1, Data ghi lại các tương tác của user với web sẽ được gửi đến nơi chuyên nhận và xử lí data, thường được gọi là data firehose. Raw data sẽ được dịch hoặc thêm data và được chuyền đến một firehose khác. AWS Kinesis và Kafka là 2 công nghệ phổ biện cho mục đích này.<br />
+						2, Raw data sau khi đã phân tích, lọc , thêm bớt, cuồi cùng sẽ được lưu vào cloud storage. <br />
+						3, Tại đây data sẽ được load vào 1 data warehouse để phân tích để có thể sử dụng. Ae có thể tìm hiểu AWS Redshift, để biết quá trình phần tích data như nào.<br /><br />
+
+						<h4>10, CLOUD STORAGE   </h4>
+
+						Cloud storage là cách đơn giản nhất và linh hoạt nhất để lưu trữ và chia sẻ data trên Internet. Chúng ta có thể sử dụng Cloud storage để phải lưu trữ ít hơn trên server web. Amazon S3 đang là cloud storage thông dụng nhất hiện nay.<br /><br />
+
+						<h4>11, CDN (Content Delivery Network)</h4>
+
+						Đây là công nghệ cung cấp giải pháp để load các file assets như static HTML, CSS, JS , Image nhanh nhất có thể nhanh hơn load trên chính server web đó. Phương thức hoạt động là các file assets sẽ được phân phối đến các server đặt ở các nơi trên thế giới, dựa vào vị trí của user mà CDN sẽ serve file assets ở server gần nhất với user thay vì phải load ở chính server web. Ví du bạn ở Việt Nam, bạn sẽ load file ảnh được đặt ở server HongKong , tất nhiên sẽ nhanh hơn rất nhiều bạn load 1 file ảnh ở Mẽo.<br />
+						<br /><br /><br /> 
+						Bài viết được dịch nguyên si theo ý hiểu của mình từ <a href="https://engineering.videoblocks.com/web-architecture-101-a3224e126947" alt="original post">bài viết này</a><br /><br />
+					</div>
+					<!-- /post content -->
+
+					<!-- post share -->
+					<div class="section-row">
+						<div class="post-share">
+							<div class="fb-like" data-layout="button_count" data-action="like" data-size="large" data-share="true"></div>
+						</div>
+					</div>
+					<!-- /post share -->
+					
+
+					<!-- post comments -->
+					<div class="section-row">
+						<div class="section-row">
+							<div class="fb-comments" data-width="100%" 	data-order-by="reverse_time" data-numposts="10"></div>
+						</div>
+					</div>
+					<!-- /post comments -->
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+
+	<!-- FOOTER -->
+	<footer id="footer">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="footer-bottom row">
+				<div class="col-md-12">
+					<div class="contact">
+						<span><i class="fa fa-phone"></i> <a href="tel:038 9695 393"> 038 9695 393</a> </span>
+						<span><i class="fa fa-envelope"></i> <a href="mailto:tuananh200898@gmail.com"> tuananh200898@gmail.com</a></span>
+						<span><i class="fa fa-skype"></i> ttlpta.g</span>
+					</div>
+				</div>
+				<div class="col-md-6 col-md-push-6">
+					<ul class="footer-nav">
+						<li><a href="/">Home</a></li>
+						<li><a href="cv.html">About Me</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 col-md-pull-6">
+					<div class="footer-copyright">
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> - AnhPT <i class="fa fa-heart-o" aria-hidden="true"></i>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</footer>
+	<!-- /FOOTER -->
+
+	<!-- jQuery Plugins -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
