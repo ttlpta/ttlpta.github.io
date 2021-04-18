@@ -467,5 +467,68 @@ https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
     const productList = makeProductList({ productDb })
     const cart = makeShoppingCart(productList)
 
+## How to do this console.log(obj.a, obj.a, obj.a) => "1", "2", "3"?
+
+>
+    Solution 1: 
+
+    const obj = {
+        get a(){
+            console.log('trigger get a');
+        }
+        set a(value) {
+            console.log('trigger set a: ', value);
+        }
+    }
+
+    obj.a // trigger get a;
+    obj.a = 1 // trigger set a: 1
+
+    // ===== 
+
+    const obj = {
+        _initValue: 0,
+        get a() {
+            _initValue++;
+            return this._initValue;
+        }
+    }
+
+    console.log(obj.a, obj.a, obj.a) // "1", "2", "3"
+
+    // ===== 
+
+    Solution 2: 
+
+    let obj = {}
+    Object.defineProperty(obj, 'a', {
+        get: (
+            function(){
+                let initValue = 0;
+                return function(){
+                    initValue++;
+                    return initValue
+                }
+            })()
+        }
+    )
+    console.log(obj.a, obj.a, obj.a)
+
+    Solution 3: 
+
+    let initValue = 0;
+    let obj = new Proxy({}, {
+    get: function(item, property, itemProxy){
+        if(property === 'a'){
+        initValue++;
+        return initValue
+        }
+        return item[property]
+    }
+    })
+    console.log(obj.a, obj.a, obj.a)
+
+
+
 
 
