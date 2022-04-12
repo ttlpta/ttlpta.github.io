@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<!-- Must-have tags for Facebook -->
+	<meta name="description" content="Scalling and Multi-threading">
+	<meta name="keywords" content="nodejs, scaling, multi-threading">
+	<meta name="author" content="https://www.facebook.com/tuananh.pham.319 ">
+	<meta property="og:url" content="https://ttlpta.github.io/scaling-nodejs.html" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="NodeJS - Scaling and Multi-threading" />
+	<meta property="og:description" content="NodeJS - Scaling and Multi-threading" />
+	<meta property="og:image"
+		content="https://raw.githubusercontent.com/ttlpta/ttlpta.github.io/master/publics/javascript.png" />
+
+	<!-- Must-have tags for Facebook -->
+	<!-- GA script -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120682087-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-120682087-1');
+	</script>
+	<!-- GA script -->
+	<!-- FB SHARE -->
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous"
+		src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=184112649512085&autoLogAppEvents=1">
+		</script>
+	<!-- FB SHARE -->
+
+	<title>NodeJS - Scaling and Multi-threading</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CMuli:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+
+<body>
+	<!-- HEADER -->
+	<header id="header">
+		<!-- NAV -->
+		<div id="nav">
+			<!-- Top Nav -->
+			<div id="nav-top">
+				<div class="container">
+					<!-- social -->
+					<ul class="nav-social">
+						<li><a href="https://www.facebook.com/tuananh.pham.319"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/tuan-anh-pham-978863ba/"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="cv.html" title="My resume"><i class="fa fa-graduation-cap"></i></a></li>
+					</ul>
+					<!-- /social -->
+
+					<!-- logo -->
+					<div class="nav-logo">
+						<a href="/" class="logo"><img src="./img/logo.png" alt=""></a>
+					</div>
+					<!-- /logo -->
+
+					<!-- search & aside toggle -->
+					<div class="nav-btns">
+						<button class="aside-btn"><i class="fa fa-bars"></i></button>
+					</div>
+					<!-- /search & aside toggle -->
+				</div>
+			</div>
+			<!-- /Top Nav -->
+
+			<!-- Main Nav -->
+			<div id="nav-bottom">
+				<div class="container">
+					<!-- nav -->
+					<ul class="nav-menu">
+						<li><a href="/">Home</a></li>
+						<li><a href="chuyen-nghe.html">Chuyện nghề</a></li>
+						<li><a href="chuyen-doi.html">Lifestyle</a></li>
+						<li><a href="review-sach.html">Review sách</a></li>
+						<li><a href="chuyen-cua-tui.html">Chuyện của tui</a></li>
+						<li><a href="cv.html">About me</a></li>
+					</ul>
+					<!-- /nav -->
+				</div>
+			</div>
+			<!-- /Main Nav -->
+
+			<!-- Aside Nav -->
+			<div id="nav-aside">
+				<ul class="nav-aside-menu">
+					<li><a href="/">Home</a></li>
+					<li><a href="chuyen-nghe.html">Chuyện nghề</a></li>
+					<li><a href="chuyen-doi.html">Lifestyle</a></li>
+					<li><a href="review-sach.html">Review sách</a></li>
+					<li><a href="chuyen-cua-tui.html">Chuyện của tui</a></li>
+					<li><a href="cv.html">About me</a></li>
+				</ul>
+				<button class="nav-close nav-aside-close"><span></span></button>
+			</div>
+			<!-- /Aside Nav -->
+		</div>
+		<!-- /NAV -->
+
+		<!-- PAGE HEADER -->
+		<div id="post-header" class="page-header">
+			<div class="page-header-bg" style="background-image: url('./img/chuyennghe/coding-large-img.jpg');"
+				data-stellar-background-ratio="0.5"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10">
+						<div class="post-category">
+							<a href="chuyen-nghe.html">Chuyện nghề</a>
+						</div>
+						<h1>NodeJS - Scaling and Multi-threading</h1>
+						<ul class="post-meta">
+							<li>12 April 2022</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /PAGE HEADER -->
+	</header>
+	<!-- /HEADER -->
+
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- post content -->
+					<div class="section-row">
+						Một số khái niệm được sử dụng trong bài viết:<br />
+						<ul style="list-style-type: decimal">
+							<li> <strong> Container (docker container)</strong>: được compose từ nhiều docker images tạo nên một
+								enviroment để chạy một
+								hay nhiều nodejs application app trên đó.</li>
+							<li> <strong>Process</strong>: 1 process sẽ được tạo ra khi 1 nodejs được start.</li>
+							<li> <strong>Thread</strong>: có thể coi thread là 1 process trong 1 process cha (process được khởi tạo
+								khi start 1
+								application). 1 process có thể mở ra nhiều threads.</li>
+						</ul>
+						<div>-----------------------------------------------------------------------------------------------------</div>
+						<br />
+						Nodejs được cho là single-thread. Điều này chưa hoàn toàn đúng nhưng bởi vì NodeJS có thể xử lí hầu hết các
+						request
+						đồng thời trên 1 thread duy nhất dưạ trên cơ chế event loop của JS nên phần nào đó có thể
+						cho rằng NodeJS là single-thread. <br /><br />
+
+						Ngày nay, với sự ra đời của CPU multiple cores thì việc xử lí nhiều request cùng lúc không có nghĩa là
+						single thread nữa, một server có thể tạo được nhiều thread cùng lúc, dựa trên cơ chế multiple cores của CPU.
+						<br /><br />
+						Multiple thread trong cùng 1 server có thể được mở trong cùng 1 process hoặc bằng cách start nhiều process
+						cùng lúc (Cluster). Mỗi 1 cách thì đều có ưu nhược điểm riêng.<br /><br />
+						Start nhiều process có thể giúp các thread hoạt động độc lập hơn , việc này đồng nghĩa với việc chia sẻ tài
+						nguyên giữa các thread sẽ khó khăn hơn, và việc giao tiếp giữa các thread sẽ trở nên tốn kém
+						hơn. Trong khi đó, việc chạy nhiều thread trong một process cung cấp khả năng scale hiệu quả hơn, việc chia
+						sẻ dễ dàng hơn
+						nhưng số lượng thread được mở cũng sẽ bị hạn chế trên 1 process, Việc này cũng xảy ra tương tự trên các
+						container. <br /><br />
+						Đối với các nền tảng cloud ngày nay cung cấp giải pháp auto scaling bằng cách scale container, tức là việc
+						tạo thêm threads/process sẽ không bị phụ thuộc vào resource của phần cứng nữa, việc này sẽ giúp việc xử lí
+						nhiều
+						request đồng thời nhưng không cần tạo thêm nhiều thread.
+						<br /><br />
+						Các giải pháp cho việc scaling 1 NodeJS Application:
+						<br /><br />
+						1, <strong>Decomposing:</strong> Chúng ta có thể scale một nodejs application bằng cách chia nhỏ app dựa
+						theo function và
+						services. Điều này có nghĩa 1 app có thể được chia thành nhiều app khác nhau với nhiều codebases khác và
+						mỗi service cũng có thể có một database riêng. Giải pháp này còn được biết đến với tên gọi Microservice.
+						Việc này sẽ giúp giảm thời gian thực thi một request trên một thread.
+						<br /><br />
+						2, <strong>Worker threads:</strong> Khi giải pháp decomposing, không còn tỏ ra hiệu quả, tức là khi có 1
+						request đến 1 single
+						container sẽ tốn thời gian để xử lí gây blocking main thread thì giải pháp tiếp theo có thể sử dụng đó là
+						Worker threads, Cách này nên sử dụng hơn là cách tạo ra nhiều process trong cùng 1 container. ( Có thể sử
+						dụng <a href="https://www.npmjs.com/package/piscina">Piscina</a> support làm việc dễ dàng hơn với worker pool).
+						Ngoài ra worker threads cũng có thể sử dụng với application chỉ chạy với single process (các desktop
+						application), đơn giản bởi vì trong trường hợp này bạn không thể tạo thêm các process khác được.
+						<br /><br />
+						3, Giao việc scaling app cho 1 tool support quản lí các container (auto scaling). Ví dụ như khi 1
+						application được deploy lên Kubernetes, không nên sử dụng Cluster, để tạo ra multi thread trong 1 container
+						hay apply theo cách 1 và 2. Cách hiệu quả nhất lúc này là
+						hãy để Kubernetes xử lí công việc này (Tăng thêm resource cho container hiện tại hay tạo thêm nhiều replica
+						cho container hiện tại)
+						<br /><br />
+						<a href="https://nodeshift.dev/nodejs-reference-architecture/functional-components/scaling-multi-threading">Bài gốc</a>
+						<br />
+						Cảm ơn anh em đã thẩm!!! ^.^
+					</div>
+					<!-- /post content -->
+
+					<!-- post share -->
+					<div class="section-row">
+						<div class="post-share">
+							<div class="fb-like" data-layout="button_count" data-action="like" data-size="large" data-share="true">
+							</div>
+						</div>
+					</div>
+					<!-- /post share -->
+
+
+					<!-- post comments -->
+					<div class="section-row">
+						<div class="section-row">
+							<div class="fb-comments" data-width="100%" data-order-by="reverse_time" data-numposts="10"></div>
+						</div>
+					</div>
+					<!-- /post comments -->
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+
+	<!-- FOOTER -->
+	<footer id="footer">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="footer-bottom row">
+				<div class="col-md-12">
+					<div class="contact">
+						<span><i class="fa fa-phone"></i> <a href="tel:038 9695 393"> 038 9695 393</a> </span>
+						<span><i class="fa fa-envelope"></i> <a href="mailto:tuananh200898@gmail.com">
+								tuananh200898@gmail.com</a></span>
+						<span><i class="fa fa-skype"></i> ttlpta.g</span>
+					</div>
+				</div>
+				<div class="col-md-6 col-md-push-6">
+					<ul class="footer-nav">
+						<li><a href="/">Home</a></li>
+						<li><a href="cv.html">About Me</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 col-md-pull-6">
+					<div class="footer-copyright">
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> - AnhPT <i class="fa fa-heart-o"
+							aria-hidden="true"></i>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</footer>
+	<!-- /FOOTER -->
+
+	<!-- jQuery Plugins -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
