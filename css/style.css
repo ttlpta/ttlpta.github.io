@@ -40,6 +40,10 @@ body {
   overflow-x: hidden;
 }
 
+body.detail {
+  background: #e4dfd6 url("../img/book-bg.jpg") top left;
+  
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
   color: #11151c;
@@ -760,7 +764,7 @@ textarea.input {
   position: relative;
   margin: -50px 0px 0px 3%;
   padding: 5%;
-  background: #fff;
+  /* background: #fff; */
   z-index: 10;
 }
 
