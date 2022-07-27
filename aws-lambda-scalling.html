@@ -196,7 +196,7 @@
             request tại một thời điểm.
             <br /><br />
             <center> <img src="img/aws-scalling/First-request-to-invoke-your-function.png" alt="serverless"
-                style="width: 600px;" /><br />
+                 /><br />
               <small>Vòng đời của các request đến function.</small>
             </center>
             <br />
@@ -210,7 +210,7 @@
             <br /><br />
             <center>
               <img src="img/aws-scalling/Lambda-ready-to-process-an-additional-request-for-the-same-function.png"
-                alt="serverless" style="width: 600px;" />
+                alt="serverless"  />
             </center>
             <br /><br />
             Nếu request đến cùng lúc mà request đầu tiên vẫn đang trong quá trình xử lí thì Lambda sẽ tạo một runtime
@@ -240,14 +240,14 @@
             thời thì số request Lambda có thể xử lí trong 1 giây sẽ bằng tổng số invocation = 10.<br /><br />
             <center>
               <img src="img/aws-scalling/Lambda-transactions-per-second-for-1-second-invocation.png" alt="serverless"
-                style="width: 600px;" />
+                 />
             </center>
             <br /><br />
             Nhưng nếu function đó chỉ mất khoảng 500ms để thực thi và vẫn với 10 runtime enviroment thì tổng số request
             lambda có thể thực hiện trên giây = 20.<br /><br />
             <center>
               <img src="img/aws-scalling/Lambda-transactions-per-second-for-500-ms-second-invocation.png"
-                alt="serverless" style="width: 600px;" />
+                alt="serverless"  />
             </center><br /><br />
             Bạn có thể theo dõi số lượng concurency request = Amazon CloudWatch. Với số liệu là ConcurrentExecutions.
             <br />
