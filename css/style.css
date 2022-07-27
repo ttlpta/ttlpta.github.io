@@ -41,7 +41,7 @@ body {
 }
 
 body.detail {
-  background: #e4dfd6 url("../img/book-bg.jpg") top left;
+  /* background: #e4dfd6 url("../img/book-bg.jpg") top left; */
   
 }
 h1, h2, h3, h4, h5, h6 {
