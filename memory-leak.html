@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Actions</title>
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .my-div {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btnA">Button A (Add Divs)</button>
+    <button id="btnB">Button B (Remove Divs)</button>
+
+    <div class="container" id="container"></div>
+
+    <script>
+        // Function to append 100 div elements
+        function appendDivs() {
+            const container = document.getElementById('container');
+            for (let i = 1; i <= 100; i++) {
+                const newDiv = document.createElement('div');
+                newDiv.classList.add('my-div');
+                newDiv.textContent = `Div #${i}`;
+                container.appendChild(newDiv);
+            }
+        }
+
+        // Function to remove all div elements
+        function removeDivs() {
+            const container = document.getElementById('container');
+            container.innerHTML = ''; // This clears all the content inside the container
+        }
+
+        // Event listeners for the buttons
+        document.getElementById('btnA').addEventListener('click', appendDivs);
+        document.getElementById('btnB').addEventListener('click', removeDivs);
+    </script>
+
+</body>
+</html>
